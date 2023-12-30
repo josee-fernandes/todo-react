@@ -1,2 +1,29 @@
 .task {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-300);
+  color: var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.task + .task {
+  margin-top: 0.75rem;
+}
+
+.check {
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+  width: 17.45px;
+  height: 17.45px;
+  background: transparent;
+  color: var(--gray-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.1875rem;
 }
