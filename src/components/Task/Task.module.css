@@ -15,6 +15,27 @@
   margin-top: 0.75rem;
 }
 
+.task div {
+  display: flex;
+}
+
+.checkboxWrapper input[type="checkbox"] {
+  visibility: hidden;
+  max-height: 0;
+  max-width: 0;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + .check {
+  background: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + .check:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  opacity: 1;
+}
+
 .check {
   border-radius: 50%;
   border: 2px solid var(--blue);
@@ -26,4 +47,16 @@
   justify-content: center;
   align-items: center;
   margin: 0.1875rem;
+  cursor: pointer;
+  transition: border-color 150ms, background-color 150ms, opacity 150ms;
+}
+
+.check:hover {
+  border-color: var(--blue-dark);
+  background-color: var(--blue-dark);
+  opacity: 0.2;
+}
+
+.check svg polyline {
+  stroke-width: 2rem;
 }

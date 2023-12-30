@@ -2,4 +2,11 @@
   max-width: 46rem;
   padding: 0 1rem;
   margin: 0 auto;
+  margin-top: -1.75rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
 }
