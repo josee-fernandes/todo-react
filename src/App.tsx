@@ -1,10 +1,33 @@
 import { Header } from "./components/Header";
 import { NewTask } from "./components/NewTask";
-import { Tasks } from "./components/Tasks";
+import { TaskType, Tasks } from "./components/Tasks";
+
+import { v4 as uuidv4 } from "uuid";
 
 import "./global.css";
 
 import styles from "./App.module.css";
+
+const tasks: TaskType[] = [
+  {
+    id: uuidv4(),
+    content:
+      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    isChecked: false,
+  },
+  {
+    id: uuidv4(),
+    content:
+      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    isChecked: false,
+  },
+  {
+    id: uuidv4(),
+    content:
+      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    isChecked: false,
+  },
+];
 
 function App() {
   return (
@@ -12,7 +35,7 @@ function App() {
       <Header />
       <div className={styles.container}>
         <NewTask />
-        <Tasks />
+        <Tasks tasks={tasks} />
       </div>
     </div>
   );

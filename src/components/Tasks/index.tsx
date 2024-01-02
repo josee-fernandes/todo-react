@@ -2,7 +2,17 @@ import { Task } from "../Task";
 
 import styles from "./Tasks.module.css";
 
-export function Tasks() {
+export interface TaskType {
+  id: string;
+  content: string;
+  isChecked: boolean;
+}
+
+interface TasksProps {
+  tasks: TaskType[];
+}
+
+export function Tasks({ tasks }: TasksProps) {
   return (
     <main className={styles.tasks}>
       <header>
@@ -16,10 +26,9 @@ export function Tasks() {
         </div>
       </header>
       <ul className={styles.list}>
-        <Task />
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
       </ul>
     </main>
   );
