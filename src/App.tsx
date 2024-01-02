@@ -9,39 +9,6 @@ import "./global.css";
 import styles from "./App.module.css";
 import { useState } from "react";
 
-// const tasks: TaskType[] = [
-//   {
-//     id: uuidv4(),
-//     content:
-//       "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-//     isChecked: false,
-//   },
-//   {
-//     id: uuidv4(),
-//     content:
-//       "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-//     isChecked: false,
-//   },
-//   {
-//     id: uuidv4(),
-//     content:
-//       "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-//     isChecked: false,
-//   },
-//   {
-//     id: uuidv4(),
-//     content:
-//       "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-//     isChecked: true,
-//   },
-//   {
-//     id: uuidv4(),
-//     content:
-//       "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-//     isChecked: true,
-//   },
-// ];
-
 function App() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
@@ -49,12 +16,16 @@ function App() {
     setTasks((oldTasks) => [...oldTasks, task]);
   }
 
+  function updateTasks(newTasks: TaskType[]) {
+    setTasks(newTasks);
+  }
+
   return (
     <div>
       <Header />
       <div className={styles.container}>
         <NewTask onCreateTask={createTask} />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onUpdateTasks={updateTasks} />
       </div>
     </div>
   );
