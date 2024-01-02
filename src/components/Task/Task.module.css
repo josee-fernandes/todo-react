@@ -34,6 +34,25 @@
   display: flex;
 }
 
+.task > button {
+  border: none;
+  background: transparent;
+  color: var(--gray-300);
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 150ms, background-color 150ms;
+}
+
+.task > button:hover {
+  background: var(--gray-400);
+}
+
+.task > button:hover svg {
+  color: var(--danger);
+}
+
 .checkboxWrapper input[type="checkbox"] {
   visibility: hidden;
   max-height: 0;

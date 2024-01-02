@@ -16,12 +16,17 @@ interface TasksProps {
 
 export function Tasks({ tasks, onUpdateTasks }: TasksProps) {
   function updateTaskCheckedStatus(updatedTask: TaskType) {
-    // const newTasks = [...tasks, updatedTask];
     const newTasks = tasks.map((task) =>
       updatedTask.id === task.id ? updatedTask : task
     );
 
     onUpdateTasks(newTasks);
+  }
+
+  function deleteTask(id: string) {
+    const newTasksWithoutDeletedOne = tasks.filter((task) => task.id !== id);
+
+    onUpdateTasks(newTasksWithoutDeletedOne);
   }
 
   const isTasksEmpty = tasks.length === 0;
@@ -61,6 +66,7 @@ export function Tasks({ tasks, onUpdateTasks }: TasksProps) {
               key={task.id}
               task={task}
               onCheckTask={updateTaskCheckedStatus}
+              onDeleteTask={deleteTask}
             />
           ))
         )}

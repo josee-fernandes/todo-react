@@ -1,4 +1,4 @@
-import { Check } from "phosphor-react";
+import { Check, Trash } from "phosphor-react";
 import { TaskType } from "../Tasks";
 
 import styles from "./Task.module.css";
@@ -6,13 +6,18 @@ import styles from "./Task.module.css";
 interface TaskProps {
   task: TaskType;
   onCheckTask: (updatedTask: TaskType) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-export function Task({ task, onCheckTask }: TaskProps) {
+export function Task({ task, onCheckTask, onDeleteTask }: TaskProps) {
   function handleToggleIsChecked() {
     const newTask = { ...task, isChecked: !task.isChecked };
 
     onCheckTask(newTask);
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(task.id);
   }
 
   const taskClassName = task.isChecked
@@ -28,6 +33,9 @@ export function Task({ task, onCheckTask }: TaskProps) {
         </button>
       </div>
       <p>{task.content}</p>
+      <button title="Deletar tarefa" onClick={handleDeleteTask}>
+        <Trash size={14} />
+      </button>
     </li>
   );
 }
