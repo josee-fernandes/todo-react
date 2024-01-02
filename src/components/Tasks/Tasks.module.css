@@ -38,3 +38,28 @@
   border-top: 1px solid var(--gray-400);
   border-radius: 8px;
 }
+
+.emptyTasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15.25rem;
+}
+
+.emptyTasks svg {
+  color: var(--gray-400);
+}
+
+.emptyTasks p {
+  color: var(--gray-300);
+  line-height: 140%;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.emptyTasks p strong {
+  font-weight: bold;
+  display: block;
+}
