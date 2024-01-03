@@ -14,3 +14,4 @@ Aplicação de uma lista de tarefas para o desafio opcional em fundamentos do re
 - [x] Configurar responsividade
 - [x] Personalizar erro no input
 - [x] Salvar tarefas em armazenamento local
+- [x] Deploy com GitHub Pages ([Clique aqui para acessar](https://josee-fernandes.github.io/todo-react/))
