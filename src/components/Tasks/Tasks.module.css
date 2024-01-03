@@ -33,13 +33,10 @@
   border-radius: 999px;
 }
 
-.tasks .list {
+.emptyTasks {
   margin-top: 1.5rem;
   border-top: 1px solid var(--gray-400);
   border-radius: 8px;
-}
-
-.emptyTasks {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -60,7 +60,7 @@ export function Tasks({ tasks, onUpdateTasks }: TasksProps) {
           </p>
         </div>
       ) : (
-        <ul className={styles.list}>
+        <ul>
           {tasks.map((task) => (
             <Task
               key={task.id}
