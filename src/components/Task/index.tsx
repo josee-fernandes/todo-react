@@ -23,12 +23,19 @@ export function Task({ task, onCheckTask, onDeleteTask }: TaskProps) {
   const taskClassName = task.isChecked
     ? styles.task + " " + styles.taskChecked
     : styles.task;
+  const checkButtonTitle = task.isChecked
+    ? "Desmarcar tarefa como concluída"
+    : "Marcar tarefa como concluída";
 
   return (
     <li className={taskClassName}>
       <div className={styles.checkboxWrapper}>
         <input type="checkbox" checked={task.isChecked} readOnly />
-        <button className={styles.check} onClick={handleToggleIsChecked}>
+        <button
+          className={styles.check}
+          onClick={handleToggleIsChecked}
+          title={checkButtonTitle}
+        >
           {task.isChecked && <Check />}
         </button>
       </div>
