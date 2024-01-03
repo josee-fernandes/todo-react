@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import styles from "./NewTask.module.css";
 import { TaskType } from "../Tasks";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 interface NewTaskProps {
   onCreateTask: (task: TaskType) => void;
@@ -13,7 +13,12 @@ export function NewTask({ onCreateTask }: NewTaskProps) {
   const [newTaskContent, setNewTaskContent] = useState("");
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
     setNewTaskContent(event.target.value);
+  }
+
+  function handleNewChangeInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("A tarefa é obrigatória!");
   }
 
   function handleCreateNewTask(event: FormEvent<HTMLFormElement>) {
@@ -37,6 +42,7 @@ export function NewTask({ onCreateTask }: NewTaskProps) {
         placeholder="Adicione uma nova tarefa"
         value={newTaskContent}
         onChange={handleNewTaskChange}
+        onInvalid={handleNewChangeInvalid}
         required
       />
       <button>

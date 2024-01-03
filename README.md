@@ -5,4 +5,5 @@
 - [x] Remover uma tarefa da listagem
 - [x] Mostrar o progresso de conclusão das tarefas
 - [x] Configurar responsividade
-- [ ] Personalizar erro no input
+- [x] Personalizar erro no input
+- [ ] Salvar tarefas em armazenamento local
