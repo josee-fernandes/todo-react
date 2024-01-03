@@ -51,26 +51,26 @@ export function Tasks({ tasks, onUpdateTasks }: TasksProps) {
           )}
         </div>
       </header>
-      <ul className={styles.list}>
-        {isTasksEmpty ? (
-          <div className={styles.emptyTasks}>
-            <ClipboardText size={56} />
-            <p>
-              <strong>Você ainda não tem tarefas cadastradas</strong>
-              Crie tarefas e organize seus itens a fazer
-            </p>
-          </div>
-        ) : (
-          tasks.map((task) => (
+      {isTasksEmpty ? (
+        <div className={styles.emptyTasks}>
+          <ClipboardText size={56} />
+          <p>
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            Crie tarefas e organize seus itens a fazer
+          </p>
+        </div>
+      ) : (
+        <ul className={styles.list}>
+          {tasks.map((task) => (
             <Task
               key={task.id}
               task={task}
               onCheckTask={updateTaskCheckedStatus}
               onDeleteTask={deleteTask}
             />
-          ))
-        )}
-      </ul>
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
