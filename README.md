@@ -6,4 +6,4 @@
 - [x] Mostrar o progresso de conclusão das tarefas
 - [x] Configurar responsividade
 - [x] Personalizar erro no input
-- [ ] Salvar tarefas em armazenamento local
+- [x] Salvar tarefas em armazenamento local

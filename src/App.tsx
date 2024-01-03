@@ -2,23 +2,42 @@ import { Header } from "./components/Header";
 import { NewTask } from "./components/NewTask";
 import { TaskType, Tasks } from "./components/Tasks";
 
-// import { v4 as uuidv4 } from "uuid";
-
 import "./global.css";
 
 import styles from "./App.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
+  function updateSavedTasks(tasksToSave: TaskType[]) {
+    localStorage.setItem("tasks", JSON.stringify(tasksToSave));
+  }
+
+  function getTasks() {
+    const savedTasks =
+      JSON.parse(localStorage.getItem("tasks") as string) ?? [];
+
+    setTasks(savedTasks);
+  }
+
   function createTask(task: TaskType) {
-    setTasks((oldTasks) => [...oldTasks, task]);
+    const newTasks = [...tasks, task];
+
+    updateSavedTasks(newTasks);
+
+    setTasks(newTasks);
   }
 
   function updateTasks(newTasks: TaskType[]) {
+    updateSavedTasks(newTasks);
+
     setTasks(newTasks);
   }
+
+  useEffect(() => {
+    getTasks();
+  }, []);
 
   return (
     <div>
