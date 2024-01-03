@@ -33,6 +33,10 @@
   border-radius: 999px;
 }
 
+.tasks ul {
+  margin-top: 1.5rem;
+}
+
 .emptyTasks {
   margin-top: 1.5rem;
   border-top: 1px solid var(--gray-400);
